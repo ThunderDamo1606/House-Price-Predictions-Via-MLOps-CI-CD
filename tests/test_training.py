@@ -1,7 +1,8 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath("src"))
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT_DIR, "src"))
 
 from train import train_model
 
