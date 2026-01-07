@@ -1,5 +1,9 @@
 import os
-from src.train import train_model
+import sys, os
+sys.path.append(os.path.abspath("src"))
+
+from train import train_model
+
 
 
 def test_model_creation():
