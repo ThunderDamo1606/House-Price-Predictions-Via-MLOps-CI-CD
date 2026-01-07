@@ -1,26 +1,37 @@
-# 🏠 House Price Predictions — MLOps + CI/CD
+# 🏠 House Price Predictions — MLOps + CI/CD  
 
-This project demonstrates how to build a Machine Learning workflow for predicting house prices along with CI/CD automation.
+An end-to-end machine learning project that predicts house prices and demonstrates how to automate the ML workflow using **GitHub Actions CI/CD**.
+
+This project focuses on:
+
+- reproducible ML pipelines  
+- automated testing  
+- training + evaluation  
+- model + metrics artifacts  
+- clean, production-style code  
 
 ---
 
-## 🚀 Objectives
+## ✨ Features
 
-✔ Build an ML model to predict house prices  
-✔ Automate training and testing  
-✔ Integrate CI/CD (GitHub Actions)  
-✔ Maintain clean, production-ready code  
+✅ Auto dataset generation  
+✅ Model training & evaluation  
+✅ Unit tests  
+✅ CI/CD pipeline  
+✅ Artifacts saved per run  
+✅ Easy to extend & deploy  
 
 ---
 
 ## 🛠 Tech Stack
 
-- Python
-- Pandas / NumPy
-- Scikit-learn
-- GitHub Actions (CI/CD)
-- Docker (optional)
-- MLflow (optional)
+| Area | Tools |
+|------|------|
+Programming | Python
+ML | Pandas, NumPy, Scikit-learn
+Automation | GitHub Actions (CI/CD)
+Serialization | joblib
+Optional | Docker, MLflow
 
 ---
 
@@ -28,28 +39,44 @@ This project demonstrates how to build a Machine Learning workflow for predictin
 
 ```
 project/
-│── data/
+│── data/                 # datasets
+│── models/               # saved models + metrics
 │── src/
-│   ├── data_preprocessing.py
-│   ├── train.py
-│   ├── evaluate.py
-│── models/
-│── notebooks/
+│   ├── generate_data.py  # dataset generator
+│   ├── train.py          # model training
+│   ├── evaluate.py       # evaluation
+│   ├── validate_data.py  # sanity checks
+│── tests/
+│   └── test_training.py  # unit tests
+│── .github/workflows/
+│   └── ml_pipeline.yml   # CI/CD pipeline
 │── requirements.txt
 │── README.md
 ```
 
 ---
 
-## ▶️ How to Set Up
+## ▶️ Setup & Installation
 
-### 1️⃣ Create virtual environment (optional)
+### 1️⃣ Create virtual environment (recommended)
 
 ```bash
 python -m venv venv
-source venv/bin/activate   # Linux / Mac
-venv\Scripts\activate      # Windows
 ```
+
+Activate:
+
+**Windows**
+```bash
+venv\Scripts\activate
+```
+
+**Mac / Linux**
+```bash
+source venv/bin/activate
+```
+
+---
 
 ### 2️⃣ Install dependencies
 
@@ -59,15 +86,70 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run Training
+## 📊 Dataset (auto-generated)
+
+Generate sample dataset:
+
+```bash
+python src/generate_data.py
+```
+
+Creates:
+
+```
+data/housing.csv
+```
+
+---
+
+## 🤖 Train Model
 
 ```bash
 python src/train.py
 ```
 
+Saves model:
+
+```
+models/model.pkl
+```
+
 ---
 
-## 🧪 Testing (if tests added)
+## 📈 Evaluate Model
+
+```bash
+python src/evaluate.py
+```
+
+Metrics saved:
+
+```
+models/metrics.txt
+```
+
+---
+
+## 🔄 CI/CD — GitHub Actions
+
+On every push:
+
+1️⃣ Lint  
+2️⃣ Validate data  
+3️⃣ Run tests  
+4️⃣ Train model  
+5️⃣ Evaluate  
+6️⃣ Upload artifacts  
+
+Workflow:
+
+```
+.github/workflows/ml_pipeline.yml
+```
+
+---
+
+## 🧪 Tests
 
 ```bash
 pytest
@@ -75,37 +157,21 @@ pytest
 
 ---
 
-## 🔄 CI/CD (GitHub Actions)
-
-Whenever code is pushed:
-
-✔ Lint  
-✔ Install dependencies  
-✔ Run training/tests  
-
-You can customize workflows inside:
-
-```
-.github/workflows/
-```
-
----
-
 ## 🤝 Contributing
 
-1. Fork repository  
+1. Fork  
 2. Create branch  
-3. Commit changes  
-4. Open Pull Request  
+3. Commit  
+4. Open PR  
 
 ---
 
 ## 📜 License
 
-This project is for educational and learning purposes.
+This project is for **learning and educational purposes** only.
 
 ---
 
-### 💡 Credits
+### 🙌 Credits
 
-Developed as part of learning MLOps + CI/CD workflow.
+Built while learning **MLOps + CI/CD best practices**.
